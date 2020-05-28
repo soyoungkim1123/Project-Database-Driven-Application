@@ -1,0 +1,14 @@
+2020/05/24
+Add business rules
+- A book must have one author at least. A book can only have up to 3 authors.
+- Books exist in various editions. The same book (title, edition, publication date) cannot be added to the database.
+-> Project - topic and business rules_V2.pdf
+
+2020/05/26
+Add fields to Author
+- Gender, Award, ContactNumber, Number of books, main category
+-> LibraryERD_V2
+
+2020/05/27
+Add bookId instead of using ISBN as primary key
+-> LibraryERD_V3
