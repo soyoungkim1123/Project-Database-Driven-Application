@@ -39,6 +39,11 @@ namespace Library
         }
 
         #region Event
+        /// <summary>
+        /// clear all controls and change text in the update button when user click add button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new author";
@@ -61,6 +66,11 @@ namespace Library
             grpPublishedWork.Enabled = false;
         }
 
+        /// <summary>
+        /// display author detail again and enable buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             LoadAuthorDetails();
@@ -74,6 +84,11 @@ namespace Library
             grpPublishedWork.Enabled = true;
         }
 
+        /// <summary>
+        /// update data based on user change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -104,6 +119,11 @@ namespace Library
 
         }
 
+        /// <summary>
+        /// call delete author method. prompt confirmation message box before delete.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are ou sure you wish to delete this author?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -115,6 +135,9 @@ namespace Library
         #endregion
 
         #region NonQuery Exection
+        /// <summary>
+        /// insert new record into author table
+        /// </summary>
         private void CreateAuthor()
         {
             string middleName = txtMiddleName.Text.Trim() == "" ? "NULL" : "'" + txtMiddleName.Text.Trim() + "'";
@@ -166,6 +189,9 @@ namespace Library
             NavigationState(true);
         }
 
+        /// <summary>
+        /// update existing record of author table
+        /// </summary>
         private void SaveAuthorChanges()
         {
             string middleName = txtMiddleName.Text.Trim() == "" ? "NULL" : "'" + txtMiddleName.Text.Trim() + "'";
@@ -197,6 +223,9 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// delete existing record in author table
+        /// </summary>
         private void DeleteAuthor()
         {
             string sqlNumAuthorinList = $"SELECT AuthorId FROM BooksAuthors WHERE AuthorId = {currentAuthorId}";
@@ -228,18 +257,27 @@ namespace Library
         #endregion
 
         #region Retrieves
+        /// <summary>
+        /// fill the category combobox
+        /// </summary>
         private void LoadCategory()
         {
             DataTable dtMainCategory = DataAccess.GetData("SELECT CategoryId, CategoryName FROM Category");
             UT.BindComboBox(cmbMainCategory, dtMainCategory, "CategoryName", "CategoryId");
         }
 
+        /// <summary>
+        /// retrieve first author and display information
+        /// </summary>
         private void GetFirstAuthor()
         {
             currentAuthorId = Convert.ToInt32(DataAccess.GetValue("SELECT TOP(1) AuthorId FROM Author ORDER BY FirstName, LastName"));
             LoadAuthorDetails();
         }
 
+        /// <summary>
+        /// display author details and assign author id for navigation
+        /// </summary>
         private void LoadAuthorDetails()
         {
             errProvider.Clear();
@@ -307,6 +345,9 @@ namespace Library
             DisplayCurrentPosition();
         }
 
+        /// <summary>
+        /// display the latest book of selected author
+        /// </summary>
         private void GetLatestBooks()
         {
             string sqlLatestBook = $@"
@@ -342,6 +383,12 @@ namespace Library
         #endregion
 
         #region [Navigation Helpers]
+        /// <summary>
+        /// change the author ID for navigation
+        /// display author information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Navigation_Handler(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -365,12 +412,19 @@ namespace Library
             NavigationButtonManagement();
         }
 
+        /// <summary>
+        /// if there is no previous/next record, disable navigation buttons.
+        /// </summary>
         private void NavigationButtonManagement()
         {
             btnPrevious.Enabled = previousAuthorId != null;
             btnNext.Enabled = nextAuthorId != null;
         }
 
+        /// <summary>
+        /// change nagivation buttons' enable status
+        /// </summary>
+        /// <param name="enableState"></param>
         private void NavigationState(bool enableState)
         {
             btnFirst.Enabled = enableState;
@@ -382,6 +436,9 @@ namespace Library
         #endregion
 
         #region Helper
+        /// <summary>
+        /// display current position in the parent form
+        /// </summary>
         private void DisplayCurrentPosition()
         {
             ((mdiForm)this.MdiParent).StatusStipLabel.Text = $"{currentRecord} of {numberOfAuthors} authors";
@@ -460,10 +517,21 @@ namespace Library
             errProvider.SetError(txt, errMsg);
         }
 
+        /// <summary>
+        /// validating if input is numeric
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private bool IsNumeric(string value)
         {
             return Double.TryParse(value, out double d);
         }
+
+        /// <summary>
+        /// display overview in parent form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMaintenanceAuthor_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((mdiForm)this.MdiParent).RefreshParent();

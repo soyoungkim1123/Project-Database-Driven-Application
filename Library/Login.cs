@@ -21,7 +21,7 @@ namespace Library
         private void Login_Load(object sender, EventArgs e)
         {
             this.Text = Application.ProductName + "- Login";
-            txtUserName.Text = Environment.UserName;
+            txtUserName.Text = "admin";
             txtPassword.UseSystemPasswordChar = true;
         }
 
@@ -34,16 +34,18 @@ namespace Library
         {
             try
             {
-                if(txtUserName.Text == Environment.UserName &&
-                    txtPassword.Text.Trim().ToLower() == ConfigurationManager.AppSettings["DefaultPassword"].ToString().ToLower())
+                object userName = DataAccess.GetValue($"SELECT Password FROM Login WHERE UserName = '{txtUserName.Text}'");
+
+                if(userName == null || txtPassword.Text.Trim() != userName.ToString())
                 {
-                    DialogResult = DialogResult.OK;
+                    MessageBox.Show("Login failed");
                 }
 
                 else
                 {
-                    MessageBox.Show("Login failed");
+                    DialogResult = DialogResult.OK;
                 }
+               
             }
             
             catch(Exception ex)

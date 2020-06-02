@@ -40,6 +40,11 @@ namespace Library
 
         #region Event
 
+        /// <summary>
+        /// clear all controls and change text in the update button when user click add button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new book";
@@ -56,6 +61,11 @@ namespace Library
             NavigationState(false);
         }
 
+        /// <summary>
+        /// display book detail again and enable buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             LoadBookDetails();
@@ -68,6 +78,11 @@ namespace Library
             NavigationButtonManagement();
         }
 
+        /// <summary>
+        /// update data based on user change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -96,6 +111,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// call delete book method. prompt confirmation message box before delete.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are ou sure you wish to delete this book?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -106,6 +126,9 @@ namespace Library
 
         #endregion
 
+        /// <summary>
+        /// insert new record into book table
+        /// </summary>
         #region NonQuery Exection
         private void CreateBook()
         {
@@ -159,6 +182,9 @@ namespace Library
             NavigationState(true);
         }
 
+        /// <summary>
+        /// update existing record of book table
+        /// </summary>
         private void SaveBookChanges()
         {
             string sqlUpdateBook = $@"
@@ -191,6 +217,9 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// delete existing record in book table
+        /// </summary>
         private void DeleteBook()
         {
             string sqlNumBookinList = $"SELECT BookId FROM BooksAuthors WHERE BookId = {currentBookId}";
@@ -222,18 +251,28 @@ namespace Library
         #endregion
 
         #region Retrieves
+
+        /// <summary>
+        /// fill the category combobox
+        /// </summary>
         private void LoadCategory()
         {
             DataTable dtCategory = DataAccess.GetData("SELECT CategoryId, CategoryName FROM Category");
             UT.BindComboBox(cmbCategory, dtCategory, "CategoryName", "CategoryId");
         }
 
+        /// <summary>
+        /// retrieve first book and display information
+        /// </summary>
         private void GetFirstBook()
         {
             currentBookId = Convert.ToInt32(DataAccess.GetValue("SELECT TOP(1) BookId FROM Book ORDER BY Title"));
             LoadBookDetails();
         }
 
+        /// <summary>
+        /// display book details and assign book id for navigation
+        /// </summary>
         private void LoadBookDetails()
         {
             errProvider.Clear();
@@ -287,6 +326,11 @@ namespace Library
         #endregion
 
         #region [Navigation Helpers]
+        /// <summary>
+        /// change the book ID for navigation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Navigation_Handler(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -311,12 +355,19 @@ namespace Library
             NavigationButtonManagement();
         }
 
+        /// <summary>
+        /// if there is no previous/next record, disable navigation buttons.
+        /// </summary>
         private void NavigationButtonManagement()
         {
             btnPrevious.Enabled = previousBookId != null;
             btnNext.Enabled = nextBookId != null;
         }
 
+        /// <summary>
+        /// change nagivation buttons' enable status
+        /// </summary>
+        /// <param name="enableState"></param>
         private void NavigationState(bool enableState)
         {
             btnFirst.Enabled = enableState;
@@ -328,6 +379,9 @@ namespace Library
         #endregion
 
         #region Helper
+        /// <summary>
+        /// display current position in the parent form
+        /// </summary>
         private void DisplayCurrentPosition()
         {
             ((mdiForm)this.MdiParent).StatusStipLabel.Text = $"{currentRecord} of {numberOfBooks} books";
@@ -406,11 +460,20 @@ namespace Library
             errProvider.SetError(txt, errMsg);
         }
 
+        /// <summary>
+        /// validating if input is numeric
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private bool IsNumeric(string value)
         {
             return Double.TryParse(value, out double d);
         }
 
+        /// <summary>
+        /// check the same book exists in the table
+        /// </summary>
+        /// <returns></returns>
         private bool IsSameBook()
         {
             DataTable dt = DataAccess.GetData($"SELECT * FROM Book WHERE Title = '{txtTitle.Text}' AND Edition = '{txtEdition.Text}' AND PublicateDate = '{dtpPublicateDate.Value}'");
@@ -432,6 +495,11 @@ namespace Library
 
         }
 
+        /// <summary>
+        /// display overview in parent form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMaintenanceBook_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((mdiForm)this.MdiParent).RefreshParent();

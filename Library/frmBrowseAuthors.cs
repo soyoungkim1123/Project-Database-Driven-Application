@@ -29,6 +29,11 @@ namespace Library
         }
         #region Event
 
+        /// <summary>
+        /// display author detail according to user selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbAuthor_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -41,6 +46,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// load author list in the specific category
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -55,12 +65,18 @@ namespace Library
         #endregion
         #region Retrieves
 
+        /// <summary>
+        /// fill category in the list
+        /// </summary>
         private void LoadCategory()
         {
             DataTable dtCategory = DataAccess.GetData("SELECT CategoryId, CategoryName FROM Category");
             UT.FillListControl(lstCategory, "CategoryName", "CategoryId", dtCategory, true, "All");
         }
 
+        /// <summary>
+        /// load author according to user selection
+        /// </summary>
         private void LoadAuthor()
         {
             string sqlAuthor = "SELECT AuthorId, FirstName + ISNULL(' '+ MiddleName, '') + ' ' + LastName AS FullName FROM Author";
@@ -94,6 +110,9 @@ namespace Library
 
         }
 
+        /// <summary>
+        /// display author's information
+        /// </summary>
         private void LoadAuthorDetail()
         {
             string sql = $@"
@@ -154,6 +173,12 @@ namespace Library
         #endregion
 
         #region Helper
+
+        /// <summary>
+        /// to display overview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmBrowseAuthors_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((mdiForm)this.MdiParent).RefreshParent();

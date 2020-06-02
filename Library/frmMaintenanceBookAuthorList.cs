@@ -52,6 +52,11 @@ namespace Library
 
         #region Event
 
+        /// <summary>
+        /// get data according to category selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGetRecords_Click(object sender, EventArgs e)
         {
             try
@@ -67,6 +72,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// clear all controls and change text in the update button when user click add button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new record";
@@ -85,6 +95,11 @@ namespace Library
 
         }
 
+        /// <summary>
+        /// display author detail again and enable buttons
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             LoadListDetails();
@@ -97,6 +112,11 @@ namespace Library
             NavigationButtonManagement();
         }
 
+        /// <summary>
+        /// update data based on user change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -130,6 +150,11 @@ namespace Library
 
         }
 
+        /// <summary>
+        /// call delete method. prompt confirmation message box before delete.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are ou sure you wish to delete this product?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -154,6 +179,9 @@ namespace Library
         #endregion
 
         #region NonQuery Exection
+        /// <summary>
+        /// insert new record into BooksAuthors table
+        /// </summary>
         private void CreateList()
         {
             if (IsSameList())
@@ -185,6 +213,9 @@ namespace Library
             NavigationState(true);
         }
 
+        /// <summary>
+        /// update existing record of BooksAuthors table
+        /// </summary>
         private void SaveListChanges()
         {
             if (IsSameList())
@@ -209,6 +240,9 @@ namespace Library
             
         }
 
+        /// <summary>
+        /// delete existing record in BooksAuthors table
+        /// </summary>
         private void DeleteList()
         {
             string sqlDeleteList = $@"DELETE FROM BooksAuthors WHERE BookId = {currentBookId} AND AuthorId = {currentAuthorId}";
@@ -230,24 +264,36 @@ namespace Library
         #endregion
 
         #region Retrieves
+        /// <summary>
+        /// fill the category combobox
+        /// </summary>
         private void LoadCategory()
         {
             DataTable dtCategory = DataAccess.GetData("SELECT CategoryId, CategoryName FROM Category");
             UT.FillListControl(cmbCategory, "CategoryName", "CategoryId", dtCategory, true, "All");
         }
 
+        /// <summary>
+        /// fill the books combobox
+        /// </summary>
         private void LoadBook()
         {
             DataTable dtBook = DataAccess.GetData("SELECT BookId, Title FROM Book");
             UT.BindComboBox(cmbBook, dtBook, "Title", "BookId");
         }
 
+        /// <summary>
+        /// fill the authors combobox
+        /// </summary>
         private void LoadAuthor()
         {
             DataTable dtAuthor = DataAccess.GetData("SELECT AuthorId, FirstName + ISNULL(' '+ MiddleName, '') + ' ' + LastName AS WholeName FROM Author  ORDER BY LastName, FirstName");
             UT.BindComboBox(cmbAuthor, dtAuthor, "WholeName", "AuthorId");
         }
 
+        /// <summary>
+        /// retrieve first author and book
+        /// </summary>
         private void GetFirstList()
         {
             string sql = $@"SELECT TOP(1) ba.BookId, ba.AuthorId FROM BooksAuthors AS ba
@@ -279,6 +325,9 @@ namespace Library
 
         }
 
+        /// <summary>
+        /// display details and assign id for navigation
+        /// </summary>
         private void LoadListDetails()
         {
             errProvider.Clear();
@@ -401,6 +450,12 @@ namespace Library
         #endregion
 
         #region [Navigation Helpers]
+        /// <summary>
+        /// change the book ID and author ID for navigation
+        /// display information 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Navigation_Handler(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -428,12 +483,19 @@ namespace Library
             NavigationButtonManagement();
         }
 
+        /// <summary>
+        /// if there is no previous/next record, disable navigation buttons.
+        /// </summary>
         private void NavigationButtonManagement()
         {
             btnPrevious.Enabled = previousAuthorId != null;
             btnNext.Enabled = nextAuthorId != null;
         }
 
+        /// <summary>
+        /// change nagivation buttons' enable status
+        /// </summary>
+        /// <param name="enableState"></param>
         private void NavigationState(bool enableState)
         {
             btnFirst.Enabled = enableState;
@@ -445,6 +507,9 @@ namespace Library
         #endregion
 
         #region Helper
+        /// <summary>
+        /// display current position in the parent form
+        /// </summary>
         private void DisplayCurrentPosition()
         {
             ((mdiForm)this.MdiParent).StatusStipLabel.Text = $"{currentRecord} of {numOfList} lists";
@@ -495,39 +560,9 @@ namespace Library
         }
 
         /// <summary>
-        /// TextBox Validating event handler
+        /// check the same list exists in the table 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txt_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            TextBox txt = (TextBox)sender;
-            string txtBoxName = txt.Tag.ToString();
-            string errMsg = null;
-
-            if (txt.Text == string.Empty)
-            {
-                errMsg = $"{txtBoxName} is required";
-                e.Cancel = true;
-            }
-
-            else if (txt.Name == "txtNumOfBooks")
-            {
-                if (!IsNumeric(txt.Text))
-                {
-                    errMsg = $"{txtBoxName} is not numeric";
-                    e.Cancel = true;
-                }
-            }
-
-            errProvider.SetError(txt, errMsg);
-        }
-
-        private bool IsNumeric(string value)
-        {
-            return Double.TryParse(value, out double d);
-        }
-
+        /// <returns></returns>
         private bool IsSameList()
         {
             int NumOfAuthors = Convert.ToInt32(DataAccess.GetValue($"SELECT COUNT(*) FROM BooksAuthors WHERE BookId = {cmbBook.SelectedValue}"));
@@ -548,6 +583,11 @@ namespace Library
             return true;
         }
 
+        /// <summary>
+        /// display overview in parent form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmBookAuthorList_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((mdiForm)this.MdiParent).RefreshParent();

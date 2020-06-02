@@ -34,6 +34,11 @@ namespace Library
             InitializeComponent();
         }
 
+        /// <summary>
+        /// display child form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ShowNewForm(object sender, EventArgs e)
         {
             try
@@ -82,6 +87,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// display child form by button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ShowNewFormByBtn(object sender, EventArgs e)
         {
             try
@@ -157,19 +167,6 @@ namespace Library
             this.Close();
         }
 
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
@@ -228,7 +225,7 @@ namespace Library
                         ctrl.BackColor = Color.Linen;
                     }
                 }
-                statusStrip1.Text = "Ready..";
+                toolStripStatusLabel1.Text = "Ready..";
             }
 
             else
@@ -237,6 +234,9 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// display overview of library database
+        /// </summary>
         private void ShowOverView()
         {
             panel1.Visible = true;
@@ -251,12 +251,17 @@ namespace Library
             lbAvailable.Text = numOfAvailable.ToString();
         }
 
+        /// <summary>
+        /// display overview when all child form are closed
+        /// </summary>
         public void RefreshParent()
         {
             int openChildFormCount = Application.OpenForms.Cast<Form>().Count(openForm => openForm.IsMdiChild);
             if(openChildFormCount == 0)
             {
                 ShowOverView();
+                toolStripStatusLabel1.Text = "Ready..";
+                toolStripStatusLabel2.Text = "";
             }
         }
     }

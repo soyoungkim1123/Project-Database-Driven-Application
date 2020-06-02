@@ -22,17 +22,20 @@ namespace Library
             InitializeComponent();
         }
 
-
         private void frmBrowseBook_Load(object sender, EventArgs e)
         {
             LoadBook();
             LoadCategory();
             GenerateYear();
-            cmbYear.Enabled = false;
         }
 
         #region Event
 
+        /// <summary>
+        /// when user select book in the combobox, load book details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbTitle_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -45,12 +48,16 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// when user select category, load books that belong to the category
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 chkAvailable.Checked = false;
-                chkYear.Checked = false;
                 LoadBook();
             }
             catch (Exception ex)
@@ -59,6 +66,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// when user click the filter button, load book again 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFilter_Click(object sender, EventArgs e)
         {
             try
@@ -74,12 +86,19 @@ namespace Library
 
         #region Retrieves
 
+        /// <summary>
+        /// fill the category list
+        /// </summary>
         private void LoadCategory()
         {
             DataTable dtCategory = DataAccess.GetData("SELECT CategoryId, CategoryName FROM Category");
             UT.FillListControl(lstCategory, "CategoryName", "CategoryId", dtCategory, true, "All");
         }
 
+        /// <summary>
+        /// Load books according to user selection
+        ///  if the user selects the filter option, filter the result based on criteria
+        /// </summary>
         private void LoadBook()
         {
             string sqlLoadBook = "SELECT BookId, Title + ' - ' + Edition AS Title FROM Book";
@@ -103,7 +122,7 @@ namespace Library
 
             if(chkAvailable.Checked)
             {
-                if (lstCategory.SelectedIndex == 0 && (cmbYear.SelectedIndex < 1 || !chkYear.Checked))
+                if (lstCategory.SelectedIndex == 0 && cmbYear.SelectedIndex < 1)
                 {
                     sqlLoadBook += $" WHERE Available = 1";
                 }
@@ -131,12 +150,16 @@ namespace Library
                 lbCategory.Text = string.Empty;
                 lbPublisher.Text = string.Empty;
                 lbPrice.Text = string.Empty;
+                lbNumOfAuthor.Text = string.Empty;
                 cmbTitle.DataSource = null;
                 ((mdiForm)this.MdiParent).StatusStipLabel.Text = "No records";
                 MessageBox.Show("There is no book in the category");
             }
         }
 
+        /// <summary>
+        /// display detail information of book use selected
+        /// </summary>
         private void LoadBookDetail()
         {
             string sql = $@"
@@ -187,11 +210,20 @@ namespace Library
         #endregion
 
         #region Helper
+
+        /// <summary>
+        /// to display overview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmBrowseBooks_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((mdiForm)this.MdiParent).RefreshParent();
         }
 
+        /// <summary>
+        /// generate years in combobox to filter books
+        /// </summary>
         private void GenerateYear()
         {
             cmbYear.Items.Add("");
@@ -202,15 +234,6 @@ namespace Library
             }
         }
         #endregion
-
-        private void chkYear_CheckedChanged(object sender, EventArgs e)
-        {
-            cmbYear.Enabled = chkYear.Checked;
-            if(cmbYear.Enabled == false)
-            {
-                cmbYear.SelectedIndex = 0;
-            }
-        }
 
 
     }

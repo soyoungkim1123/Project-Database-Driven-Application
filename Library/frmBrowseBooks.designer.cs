@@ -50,8 +50,8 @@
             this.btnFilter = new System.Windows.Forms.Button();
             this.chkAvailable = new System.Windows.Forms.CheckBox();
             this.cmbYear = new System.Windows.Forms.ComboBox();
-            this.chkYear = new System.Windows.Forms.CheckBox();
             this.lbNumOfAuthor = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.grpProductDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuthors)).BeginInit();
             this.panel1.SuspendLayout();
@@ -238,10 +238,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnFilter);
             this.groupBox1.Controls.Add(this.chkAvailable);
             this.groupBox1.Controls.Add(this.cmbYear);
-            this.groupBox1.Controls.Add(this.chkYear);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(192, 133);
             this.groupBox1.Name = "groupBox1";
@@ -276,22 +276,10 @@
             // 
             this.cmbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(153, 33);
+            this.cmbYear.Location = new System.Drawing.Point(136, 33);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(121, 21);
             this.cmbYear.TabIndex = 1;
-            // 
-            // chkYear
-            // 
-            this.chkYear.AutoSize = true;
-            this.chkYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkYear.Location = new System.Drawing.Point(19, 32);
-            this.chkYear.Name = "chkYear";
-            this.chkYear.Size = new System.Drawing.Size(137, 22);
-            this.chkYear.TabIndex = 0;
-            this.chkYear.Text = "Publication Year:";
-            this.chkYear.UseVisualStyleBackColor = true;
-            this.chkYear.CheckedChanged += new System.EventHandler(this.chkYear_CheckedChanged);
             // 
             // lbNumOfAuthor
             // 
@@ -301,6 +289,16 @@
             this.lbNumOfAuthor.Name = "lbNumOfAuthor";
             this.lbNumOfAuthor.Size = new System.Drawing.Size(0, 17);
             this.lbNumOfAuthor.TabIndex = 51;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Publication Year:";
             // 
             // frmBrowseBooks
             // 
@@ -354,8 +352,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox chkAvailable;
         private System.Windows.Forms.ComboBox cmbYear;
-        private System.Windows.Forms.CheckBox chkYear;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Label lbNumOfAuthor;
+        private System.Windows.Forms.Label label2;
     }
 }
