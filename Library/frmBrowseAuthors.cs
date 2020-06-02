@@ -155,6 +155,7 @@ namespace Library
 
                     dgvBooks.Columns[0].HeaderText = "Book Title";
                     dgvBooks.Columns[1].HeaderText = "Publication Date";
+                    dgvBooks.Columns[3].HeaderText = "Category";
 
                     dgvBooks.Columns[1].DefaultCellStyle.Format = "MM/dd/yyyy";
                 }

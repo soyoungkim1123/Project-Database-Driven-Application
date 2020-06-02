@@ -58,6 +58,7 @@ namespace Library
             try
             {
                 chkAvailable.Checked = false;
+                cmbYear.SelectedIndex = -1;
                 LoadBook();
             }
             catch (Exception ex)
@@ -163,7 +164,7 @@ namespace Library
         private void LoadBookDetail()
         {
             string sql = $@"
-                            SELECT  Title, ISBN, CategoryName, Publisher, Price 
+                            SELECT Title, ISBN, CategoryName, Publisher + ' (' + CONVERT(VARCHAR, YEAR(publicateDate)) + ')' AS Publisher, Price 
 		                            FROM Book
 		                            INNER JOIN Category
 		                            ON Book.CategoryId = Category.CategoryId

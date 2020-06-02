@@ -47,7 +47,8 @@ namespace Library
             LoadBook();
             LoadAuthor();
             NavigationState(false);
-
+            cmbAuthor.Enabled = false;
+            cmbBook.Enabled = false;
         }
 
         #region Event
@@ -62,6 +63,8 @@ namespace Library
             try
             {
                 this.AutoValidate = AutoValidate.Disable;
+                cmbAuthor.Enabled = true;
+                cmbBook.Enabled = true;
                 NavigationState(true);
                 GetFirstList();
             }
@@ -441,7 +444,7 @@ namespace Library
 
             else
             {
-                ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Status";
+                ((mdiForm)this.MdiParent).StatusStipLabel.Text = "No records";
                 MessageBox.Show("The list no longer exists");
             }
             

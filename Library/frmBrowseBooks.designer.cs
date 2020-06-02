@@ -47,11 +47,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lstCategory = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnFilter = new System.Windows.Forms.Button();
             this.chkAvailable = new System.Windows.Forms.CheckBox();
             this.cmbYear = new System.Windows.Forms.ComboBox();
             this.lbNumOfAuthor = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.grpProductDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuthors)).BeginInit();
             this.panel1.SuspendLayout();
@@ -145,7 +145,7 @@
             // 
             this.lbCategory.AutoSize = true;
             this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategory.Location = new System.Drawing.Point(93, 57);
+            this.lbCategory.Location = new System.Drawing.Point(93, 59);
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(0, 17);
             this.lbCategory.TabIndex = 38;
@@ -250,6 +250,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Publication Year:";
+            // 
             // btnFilter
             // 
             this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -289,16 +299,6 @@
             this.lbNumOfAuthor.Name = "lbNumOfAuthor";
             this.lbNumOfAuthor.Size = new System.Drawing.Size(0, 17);
             this.lbNumOfAuthor.TabIndex = 51;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 18);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Publication Year:";
             // 
             // frmBrowseBooks
             // 

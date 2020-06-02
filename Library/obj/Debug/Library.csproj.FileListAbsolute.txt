@@ -24,7 +24,6 @@ C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project\Projec
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project\Project\MDIAndDataGridViewDemo\obj\Debug\Library.exe
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project\Project\MDIAndDataGridViewDemo\obj\Debug\Library.pdb
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project\Project\MDIAndDataGridViewDemo\obj\Debug\Library.frmBookAuthorList.resources
-C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\image4_thumb.jpg
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\first.png
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\last.png
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\next.png
@@ -32,7 +31,6 @@ C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Databa
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Library.exe.config
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Library.exe
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Library.pdb
-C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.csprojAssemblyReference.cache
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.frmMaintenanceAuthor.resources
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.frmMaintenanceBook.resources
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.Login.resources
@@ -45,3 +43,13 @@ C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Databa
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.frmMaintenanceBookAuthorList.resources
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.frmBrowseBooks.resources
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.frmBrowseAuthors.resources
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Library.exe.manifest
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Library.application
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.exe.manifest
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.application
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\book.png
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\author.png
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\list.png
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\browsebook.png
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\browseauthor.png
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.csprojAssemblyReference.cache
