@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author : Soyoung Kim
+//Date : 6/2/2020
+//Purpose : Project-Database-Driven-Application
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;

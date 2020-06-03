@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author : Soyoung Kim
+//Date : 6/2/2020
+//Purpose : Project-Database-Driven-Application
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -118,7 +122,7 @@ namespace Library
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are ou sure you wish to delete this book?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you wish to delete this book?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 DeleteBook();
             }
@@ -476,8 +480,19 @@ namespace Library
         /// <returns></returns>
         private bool IsSameBook()
         {
-            DataTable dt = DataAccess.GetData($"SELECT * FROM Book WHERE Title = '{txtTitle.Text}' AND Edition = '{txtEdition.Text}' AND PublicateDate = '{dtpPublicateDate.Value}'");
-            DataTable dt2 = DataAccess.GetData($"SELECT * FROM Book WHERE ISBN = '{txtISBN.Text}'");
+            string sqlTitle = $"SELECT * FROM Book WHERE Title = '{txtTitle.Text}' AND Edition = '{txtEdition.Text}' AND PublicateDate = '{dtpPublicateDate.Value}'";
+            string sqlISBN = $"SELECT * FROM Book WHERE ISBN = '{txtISBN.Text}'";
+
+
+            if (!createNewRecord)
+            {
+                sqlTitle += $" AND BookId <> {currentBookId}";
+                sqlISBN += $" AND BookId <> {currentBookId}";
+            }
+
+            DataTable dt = DataAccess.GetData(sqlTitle);
+            DataTable dt2 = DataAccess.GetData(sqlISBN);
+
 
             if (dt.Rows.Count > 0)
             {

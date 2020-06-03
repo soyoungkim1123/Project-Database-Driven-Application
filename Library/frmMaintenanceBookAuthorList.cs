@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author : Soyoung Kim
+//Date : 6/2/2020
+//Purpose : Project-Database-Driven-Application
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +35,7 @@ namespace Library
         private int? previousAuthorId = 0;
 
         private const int MAX_AUTHORS = 3;
-        
+
         bool createNewRecord = false;
         private int currentRecord = 0;
         private int numOfList = 0;
@@ -221,26 +225,24 @@ namespace Library
         /// </summary>
         private void SaveListChanges()
         {
-            if (IsSameList())
-            {
-                string sqlUpdateList = $@"
+
+            string sqlUpdateList = $@"
                                       UPDATE BooksAuthors
                                       SET BookId = {cmbBook.SelectedValue}, AuthorId = {cmbAuthor.SelectedValue}                                       
                                       WHERE BookId = {currentBookId} AND AuthorId = {currentAuthorId}";
 
-                sqlUpdateList = DataAccess.SQLCleaner(sqlUpdateList);
-                int rowsAffected = DataAccess.ExecuteNonQuery(sqlUpdateList);
-                if (rowsAffected == 1)
-                {
-                    MessageBox.Show("Author updated");
-                }
-                else
-                {
-                    MessageBox.Show("The database reported no rows affected.");
-                }
+            sqlUpdateList = DataAccess.SQLCleaner(sqlUpdateList);
+            int rowsAffected = DataAccess.ExecuteNonQuery(sqlUpdateList);
+            if (rowsAffected == 1)
+            {
+                MessageBox.Show("Author updated");
+            }
+            else
+            {
+                MessageBox.Show("The database reported no rows affected.");
             }
 
-            
+
         }
 
         /// <summary>
@@ -303,13 +305,13 @@ namespace Library
                                 INNER JOIN Book AS b
                                 ON ba.BookId = b.BookId";
 
-            if(cmbCategory.SelectedIndex > 0)
+            if (cmbCategory.SelectedIndex > 0)
             {
                 sql += $" WHERE b.CategoryId = {cmbCategory.SelectedValue}";
             }
 
             DataTable firstList = DataAccess.GetData(sql);
-            if(firstList.Rows.Count > 0)
+            if (firstList.Rows.Count > 0)
             {
                 currentBookId = Convert.ToInt32(firstList.Rows[0]["BookId"]);
                 currentAuthorId = Convert.ToInt32(firstList.Rows[0]["AuthorId"]);
@@ -412,11 +414,11 @@ namespace Library
                             ORDER BY q.BookId, q.AuthorId";
             }
 
-            
+
             string[] sqlStatements = new string[] { sqlListByIds, sqlNav };
             DataSet ds = DataAccess.GetData(sqlStatements);
 
-            if(ds.Tables[0].Rows.Count > 0)
+            if (ds.Tables[0].Rows.Count > 0)
             {
                 DataRow selectedList = ds.Tables["Table"].Rows[0];
 
@@ -447,7 +449,7 @@ namespace Library
                 ((mdiForm)this.MdiParent).StatusStipLabel.Text = "No records";
                 MessageBox.Show("The list no longer exists");
             }
-            
+
         }
 
         #endregion
@@ -569,7 +571,10 @@ namespace Library
         private bool IsSameList()
         {
             int NumOfAuthors = Convert.ToInt32(DataAccess.GetValue($"SELECT COUNT(*) FROM BooksAuthors WHERE BookId = {cmbBook.SelectedValue}"));
-            DataTable dt = DataAccess.GetData($"SELECT * FROM BooksAuthors WHERE BookId = {cmbBook.SelectedValue} AND AuthorId = {cmbAuthor.SelectedValue}");
+
+            string sql = $"SELECT * FROM BooksAuthors WHERE BookId = {cmbBook.SelectedValue} AND AuthorId = {cmbAuthor.SelectedValue}";
+
+            DataTable dt = DataAccess.GetData(sql);
 
             if (dt.Rows.Count > 0)
             {
