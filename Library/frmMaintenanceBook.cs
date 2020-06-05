@@ -51,18 +51,26 @@ namespace Library
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new book";
-            ((mdiForm)this.MdiParent).StatusStipLabe2.Text = "";
-            UT.ClearControls(grpBookInfo.Controls);
+            try
+            {
+                ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new book";
+                ((mdiForm)this.MdiParent).StatusStipLabe2.Text = "";
+                UT.ClearControls(grpBookInfo.Controls);
 
-            LoadCategory();
+                LoadCategory();
 
-            btnUpdate.Text = "Create";
-            btnAdd.Enabled = false;
-            btnDelete.Enabled = false;
-            createNewRecord = true;
+                btnUpdate.Text = "Create";
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = false;
+                createNewRecord = true;
 
-            NavigationState(false);
+                NavigationState(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
 
         /// <summary>
@@ -72,14 +80,24 @@ namespace Library
         /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            LoadBookDetails();
-            btnUpdate.Text = "Update";
-            btnAdd.Enabled = true;
-            btnDelete.Enabled = true;
-            createNewRecord = false;
+            try
+            {
+                LoadBookDetails();
+                btnUpdate.Text = "Update";
+                btnAdd.Enabled = true;
+                btnDelete.Enabled = true;
+                createNewRecord = false;
 
-            NavigationState(true);
-            NavigationButtonManagement();
+                NavigationState(true);
+                NavigationButtonManagement();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+            
         }
 
         /// <summary>
@@ -122,10 +140,18 @@ namespace Library
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you wish to delete this book?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                DeleteBook();
+                if (MessageBox.Show("Are you sure you wish to delete this book?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DeleteBook();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
 
         #endregion

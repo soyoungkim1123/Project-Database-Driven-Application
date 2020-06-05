@@ -50,24 +50,33 @@ namespace Library
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new author";
-            ((mdiForm)this.MdiParent).StatusStipLabe2.Text = "";
-            UT.ClearControls(grpAuthorInfo.Controls);
-            UT.ClearControls(grpCareer.Controls);
-            UT.ClearControls(grpPublishedWork.Controls);
+            try
+            {
+                ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new author";
+                ((mdiForm)this.MdiParent).StatusStipLabe2.Text = "";
+                UT.ClearControls(grpAuthorInfo.Controls);
+                UT.ClearControls(grpCareer.Controls);
+                UT.ClearControls(grpPublishedWork.Controls);
 
-            rdoMale.Checked = true;
+                rdoMale.Checked = true;
 
-            LoadCategory();
+                LoadCategory();
 
-            btnUpdate.Text = "Create";
-            btnAdd.Enabled = false;
-            btnDelete.Enabled = false;
-            createNewRecord = true;
+                btnUpdate.Text = "Create";
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = false;
+                createNewRecord = true;
 
-            NavigationState(false);
+                NavigationState(false);
 
-            grpPublishedWork.Enabled = false;
+                grpPublishedWork.Enabled = false;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+           
         }
 
         /// <summary>
@@ -77,15 +86,23 @@ namespace Library
         /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            LoadAuthorDetails();
-            btnUpdate.Text = "Update";
-            btnAdd.Enabled = true;
-            btnDelete.Enabled = true;
-            createNewRecord = false;
+            try
+            {
+                LoadAuthorDetails();
+                btnUpdate.Text = "Update";
+                btnAdd.Enabled = true;
+                btnDelete.Enabled = true;
+                createNewRecord = false;
 
-            NavigationState(true);
-            NavigationButtonManagement();
-            grpPublishedWork.Enabled = true;
+                NavigationState(true);
+                NavigationButtonManagement();
+                grpPublishedWork.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+           
         }
 
         /// <summary>
@@ -130,10 +147,18 @@ namespace Library
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are ou sure you wish to delete this author?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                DeleteAuthor();
+                if (MessageBox.Show("Are ou sure you wish to delete this author?", "Are you sure?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    DeleteAuthor();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
 
         #endregion

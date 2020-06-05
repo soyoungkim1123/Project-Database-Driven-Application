@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lstCategory = new System.Windows.Forms.ListBox();
             this.lbContactNumber = new System.Windows.Forms.Label();
             this.lbFullName = new System.Windows.Forms.Label();
@@ -143,8 +143,8 @@
             // dgvBooks
             // 
             this.dgvBooks.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvBooks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvBooks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBooks.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooks.Location = new System.Drawing.Point(192, 266);
@@ -198,6 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(844, 539);
             this.Controls.Add(this.lbNumOfBook);
             this.Controls.Add(this.lstCategory);

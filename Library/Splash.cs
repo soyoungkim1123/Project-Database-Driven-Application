@@ -26,6 +26,15 @@ namespace Library
             lbProductName.Text = Application.ProductName;
             lbVersion.Text = Application.ProductVersion;
             lbCompanyName.Text = Application.CompanyName;
+            
+            lbProductName.Parent = pictureBox1;
+            lbVersion.Parent = pictureBox1;
+            lbCompanyName.Parent = pictureBox1;
+
+            lbProductName.BackColor = Color.Transparent;
+            lbVersion.BackColor = Color.Transparent;
+            lbCompanyName.BackColor = Color.Transparent;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

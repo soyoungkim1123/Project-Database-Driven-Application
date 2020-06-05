@@ -50,9 +50,7 @@ namespace Library
             LoadCategory();
             LoadBook();
             LoadAuthor();
-            NavigationState(false);
-            cmbAuthor.Enabled = false;
-            cmbBook.Enabled = false;
+            Setup(false);
         }
 
         #region Event
@@ -67,9 +65,7 @@ namespace Library
             try
             {
                 this.AutoValidate = AutoValidate.Disable;
-                cmbAuthor.Enabled = true;
-                cmbBook.Enabled = true;
-                NavigationState(true);
+                Setup(true);
                 GetFirstList();
             }
 
@@ -86,19 +82,27 @@ namespace Library
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new record";
-            ((mdiForm)this.MdiParent).StatusStipLabe2.Text = "";
-            cmbBook.SelectedIndex = 0;
-            cmbAuthor.SelectedIndex = 0;
+            try
+            {
+                ((mdiForm)this.MdiParent).StatusStipLabel.Text = "Adding a new record";
+                ((mdiForm)this.MdiParent).StatusStipLabe2.Text = "";
+                cmbBook.SelectedIndex = 0;
+                cmbAuthor.SelectedIndex = 0;
 
-            LoadCategory();
+                LoadCategory();
 
-            btnUpdate.Text = "Create";
-            btnAdd.Enabled = false;
-            btnDelete.Enabled = false;
-            createNewRecord = true;
+                btnUpdate.Text = "Create";
+                btnAdd.Enabled = false;
+                btnDelete.Enabled = false;
+                createNewRecord = true;
 
-            NavigationState(false);
+                NavigationState(false);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
 
         }
 
@@ -109,14 +113,23 @@ namespace Library
         /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            LoadListDetails();
-            btnUpdate.Text = "Update";
-            btnAdd.Enabled = true;
-            btnDelete.Enabled = true;
-            createNewRecord = false;
+            try
+            {
+                LoadListDetails();
+                btnUpdate.Text = "Update";
+                btnAdd.Enabled = true;
+                btnDelete.Enabled = true;
+                createNewRecord = false;
 
-            NavigationState(true);
-            NavigationButtonManagement();
+                NavigationState(true);
+                NavigationButtonManagement();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+            
         }
 
         /// <summary>
@@ -235,7 +248,7 @@ namespace Library
             int rowsAffected = DataAccess.ExecuteNonQuery(sqlUpdateList);
             if (rowsAffected == 1)
             {
-                MessageBox.Show("Author updated");
+                MessageBox.Show("List updated");
             }
             else
             {
@@ -538,6 +551,17 @@ namespace Library
 
              ((mdiForm)this.MdiParent).StatusStipLabe2.Text = "Processed";
             ((mdiForm)this.MdiParent).ProgressBar.Visible = false;
+        }
+
+        private void Setup(bool state)
+        {
+            NavigationState(state);
+            cmbAuthor.Enabled = state;
+            cmbBook.Enabled = state;
+            btnAdd.Enabled = state;
+            btnCancel.Enabled = state;
+            btnDelete.Enabled = state;
+            btnUpdate.Enabled = state;
         }
 
         #endregion

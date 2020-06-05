@@ -229,7 +229,7 @@ namespace Library
                 {
                     if(ctrl is MdiClient)
                     {
-                        ctrl.BackColor = Color.Linen;
+                        ctrl.BackColor = Color.Azure;
                     }
                 }
                 toolStripStatusLabel1.Text = "Ready..";
