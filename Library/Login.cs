@@ -24,7 +24,7 @@ namespace Library
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.Text = Application.ProductName + "- Login";
+            this.Text = Application.ProductName + " - Login";
             txtUserName.Text = "admin";
             txtPassword.UseSystemPasswordChar = true;
         }

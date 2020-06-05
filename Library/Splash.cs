@@ -23,9 +23,9 @@ namespace Library
 
         private void Splash_Load(object sender, EventArgs e)
         {
-            label1.Text = Application.ProductName;
-            label2.Text = Application.ProductVersion;
-            label3.Text = Application.CompanyName;
+            lbProductName.Text = Application.ProductName;
+            lbVersion.Text = Application.ProductVersion;
+            lbCompanyName.Text = Application.CompanyName;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

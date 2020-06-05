@@ -53,3 +53,4 @@ C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Databa
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\browsebook.png
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\bin\Debug\Resources\browseauthor.png
 C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.csprojAssemblyReference.cache
+C:\Users\notil\OneDrive\Documents\3 semester\Database Programming\Project-Database-Driven-Application\Library\obj\Debug\Library.About.resources

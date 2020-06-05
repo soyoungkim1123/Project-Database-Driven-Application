@@ -67,6 +67,9 @@ namespace Library
                     case "BrowseAuthors":
                         childForm = new frmBrowseAuthors();
                         break;
+                    case "About":
+                        childForm = new About();
+                        break;
                 }
 
                 if (childForm != null)

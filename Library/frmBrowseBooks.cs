@@ -106,35 +106,21 @@ namespace Library
         /// </summary>
         private void LoadBook()
         {
-            string sqlLoadBook = "SELECT BookId, Title + ' - ' + Edition AS Title FROM Book";
+            string sqlLoadBook = "SELECT BookId, Title + ' - ' + Edition AS Title FROM Book WHERE 0=0";
 
             if(lstCategory.SelectedIndex > 0)
             {
-                sqlLoadBook += $" WHERE CategoryId = {lstCategory.SelectedValue}";
+                sqlLoadBook += $" AND CategoryId = {lstCategory.SelectedValue}";
             }
 
             if(cmbYear.SelectedIndex > 0)
             {
-                if(lstCategory.SelectedIndex == 0)
-                {
-                    sqlLoadBook += $" WHERE PublicateDate BETWEEN '{cmbYear.SelectedItem}-01-01' AND '{cmbYear.SelectedItem}-12-31'";
-                }
-                else
-                {
-                    sqlLoadBook += $" AND (PublicateDate BETWEEN '{cmbYear.SelectedItem}-01-01' AND '{cmbYear.SelectedItem}-12-31')";
-                }
+                sqlLoadBook += $" AND (PublicateDate BETWEEN '{cmbYear.SelectedItem}-01-01' AND '{cmbYear.SelectedItem}-12-31')";
             }
 
             if(chkAvailable.Checked)
             {
-                if (lstCategory.SelectedIndex == 0 && cmbYear.SelectedIndex < 1)
-                {
-                    sqlLoadBook += $" WHERE Available = 1";
-                }
-                else
-                {
-                    sqlLoadBook += $" AND Available = 1";
-                }
+                sqlLoadBook += $" AND Available = 1";
             }
 
             sqlLoadBook += " ORDER BY Title";

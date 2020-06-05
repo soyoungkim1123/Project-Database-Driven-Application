@@ -74,22 +74,22 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnMaintenanceBookAuthorList = new Library.CircularButton();
-            this.btnMaintenanceAuthor = new Library.CircularButton();
-            this.btnMaintenanceBook = new Library.CircularButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnBrowseAuthors = new Library.CircularButton();
-            this.btnBrowseBooks = new Library.CircularButton();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbAvailable = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnBrowseAuthors = new Library.CircularButton();
+            this.btnBrowseBooks = new Library.CircularButton();
+            this.btnMaintenanceBookAuthorList = new Library.CircularButton();
+            this.btnMaintenanceAuthor = new Library.CircularButton();
+            this.btnMaintenanceBook = new Library.CircularButton();
             this.menuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -136,7 +136,7 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
@@ -146,14 +146,14 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -161,20 +161,20 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -182,7 +182,7 @@
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.printToolStripMenuItem.Text = "&Print";
             // 
             // printPreviewToolStripMenuItem
@@ -190,24 +190,24 @@
             this.printPreviewToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripMenuItem.Image")));
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.printPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // printSetupToolStripMenuItem
             // 
             this.printSetupToolStripMenuItem.Name = "printSetupToolStripMenuItem";
-            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printSetupToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.printSetupToolStripMenuItem.Text = "Print Setup";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(143, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
@@ -224,7 +224,7 @@
             // simpleToolStripMenuItem
             // 
             this.simpleToolStripMenuItem.Name = "simpleToolStripMenuItem";
-            this.simpleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.simpleToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.simpleToolStripMenuItem.Tag = "Book";
             this.simpleToolStripMenuItem.Text = "&Book";
             this.simpleToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
@@ -232,7 +232,7 @@
             // eventsToolStripMenuItem
             // 
             this.eventsToolStripMenuItem.Name = "eventsToolStripMenuItem";
-            this.eventsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eventsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.eventsToolStripMenuItem.Tag = "Author";
             this.eventsToolStripMenuItem.Text = "&Author";
             this.eventsToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
@@ -240,7 +240,7 @@
             // controlsToolStripMenuItem
             // 
             this.controlsToolStripMenuItem.Name = "controlsToolStripMenuItem";
-            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.controlsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.controlsToolStripMenuItem.Tag = "AuthorList";
             this.controlsToolStripMenuItem.Text = "Author &List";
             this.controlsToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
@@ -257,7 +257,7 @@
             // bookToolStripMenuItem
             // 
             this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
-            this.bookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bookToolStripMenuItem.Tag = "BrowseBooks";
             this.bookToolStripMenuItem.Text = "Browse &Books";
             this.bookToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
@@ -265,7 +265,7 @@
             // authorSearchToolStripMenuItem
             // 
             this.authorSearchToolStripMenuItem.Name = "authorSearchToolStripMenuItem";
-            this.authorSearchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.authorSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.authorSearchToolStripMenuItem.Tag = "BrowseAuthors";
             this.authorSearchToolStripMenuItem.Text = "Browse &Author";
             this.authorSearchToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
@@ -279,7 +279,7 @@
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem});
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(122, 20);
+            this.helpMenu.Size = new System.Drawing.Size(44, 20);
             this.helpMenu.Text = "&Help";
             // 
             // contentsToolStripMenuItem
@@ -314,7 +314,9 @@
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Tag = "About";
             this.aboutToolStripMenuItem.Text = "&About ... ...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
             // 
             // statusStrip1
             // 
@@ -497,51 +499,6 @@
             this.label7.TabIndex = 30;
             this.label7.Text = "Books";
             // 
-            // btnMaintenanceBookAuthorList
-            // 
-            this.btnMaintenanceBookAuthorList.BackColor = System.Drawing.Color.Orange;
-            this.btnMaintenanceBookAuthorList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMaintenanceBookAuthorList.FlatAppearance.BorderSize = 0;
-            this.btnMaintenanceBookAuthorList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintenanceBookAuthorList.Image = global::Library.Properties.Resources.list;
-            this.btnMaintenanceBookAuthorList.Location = new System.Drawing.Point(704, 66);
-            this.btnMaintenanceBookAuthorList.Name = "btnMaintenanceBookAuthorList";
-            this.btnMaintenanceBookAuthorList.Size = new System.Drawing.Size(100, 100);
-            this.btnMaintenanceBookAuthorList.TabIndex = 27;
-            this.btnMaintenanceBookAuthorList.Tag = "AuthorList";
-            this.btnMaintenanceBookAuthorList.UseVisualStyleBackColor = false;
-            this.btnMaintenanceBookAuthorList.Click += new System.EventHandler(this.ShowNewFormByBtn);
-            // 
-            // btnMaintenanceAuthor
-            // 
-            this.btnMaintenanceAuthor.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnMaintenanceAuthor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMaintenanceAuthor.FlatAppearance.BorderSize = 0;
-            this.btnMaintenanceAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintenanceAuthor.Image = global::Library.Properties.Resources.author;
-            this.btnMaintenanceAuthor.Location = new System.Drawing.Point(421, 66);
-            this.btnMaintenanceAuthor.Name = "btnMaintenanceAuthor";
-            this.btnMaintenanceAuthor.Size = new System.Drawing.Size(100, 100);
-            this.btnMaintenanceAuthor.TabIndex = 26;
-            this.btnMaintenanceAuthor.Tag = "Author";
-            this.btnMaintenanceAuthor.UseVisualStyleBackColor = false;
-            this.btnMaintenanceAuthor.Click += new System.EventHandler(this.ShowNewFormByBtn);
-            // 
-            // btnMaintenanceBook
-            // 
-            this.btnMaintenanceBook.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnMaintenanceBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMaintenanceBook.FlatAppearance.BorderSize = 0;
-            this.btnMaintenanceBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaintenanceBook.Image = ((System.Drawing.Image)(resources.GetObject("btnMaintenanceBook.Image")));
-            this.btnMaintenanceBook.Location = new System.Drawing.Point(139, 66);
-            this.btnMaintenanceBook.Name = "btnMaintenanceBook";
-            this.btnMaintenanceBook.Size = new System.Drawing.Size(100, 100);
-            this.btnMaintenanceBook.TabIndex = 22;
-            this.btnMaintenanceBook.Tag = "Book";
-            this.btnMaintenanceBook.UseVisualStyleBackColor = false;
-            this.btnMaintenanceBook.Click += new System.EventHandler(this.ShowNewFormByBtn);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -598,36 +555,6 @@
             this.label13.Size = new System.Drawing.Size(97, 17);
             this.label13.TabIndex = 33;
             this.label13.Text = "Browse Books";
-            // 
-            // btnBrowseAuthors
-            // 
-            this.btnBrowseAuthors.BackColor = System.Drawing.Color.DarkOrchid;
-            this.btnBrowseAuthors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnBrowseAuthors.FlatAppearance.BorderSize = 0;
-            this.btnBrowseAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowseAuthors.Image = global::Library.Properties.Resources.browseauthor;
-            this.btnBrowseAuthors.Location = new System.Drawing.Point(581, 63);
-            this.btnBrowseAuthors.Name = "btnBrowseAuthors";
-            this.btnBrowseAuthors.Size = new System.Drawing.Size(100, 100);
-            this.btnBrowseAuthors.TabIndex = 29;
-            this.btnBrowseAuthors.Tag = "BrowseAuthors";
-            this.btnBrowseAuthors.UseVisualStyleBackColor = false;
-            this.btnBrowseAuthors.Click += new System.EventHandler(this.ShowNewFormByBtn);
-            // 
-            // btnBrowseBooks
-            // 
-            this.btnBrowseBooks.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnBrowseBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnBrowseBooks.FlatAppearance.BorderSize = 0;
-            this.btnBrowseBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowseBooks.Image = global::Library.Properties.Resources.browsebook;
-            this.btnBrowseBooks.Location = new System.Drawing.Point(306, 63);
-            this.btnBrowseBooks.Name = "btnBrowseBooks";
-            this.btnBrowseBooks.Size = new System.Drawing.Size(100, 100);
-            this.btnBrowseBooks.TabIndex = 28;
-            this.btnBrowseBooks.Tag = "BrowseBooks";
-            this.btnBrowseBooks.UseVisualStyleBackColor = false;
-            this.btnBrowseBooks.Click += new System.EventHandler(this.ShowNewFormByBtn);
             // 
             // label17
             // 
@@ -709,6 +636,81 @@
             this.label11.Size = new System.Drawing.Size(138, 22);
             this.label11.TabIndex = 36;
             this.label11.Text = "Available Books";
+            // 
+            // btnBrowseAuthors
+            // 
+            this.btnBrowseAuthors.BackColor = System.Drawing.Color.DarkOrchid;
+            this.btnBrowseAuthors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBrowseAuthors.FlatAppearance.BorderSize = 0;
+            this.btnBrowseAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowseAuthors.Image = global::Library.Properties.Resources.browseauthor;
+            this.btnBrowseAuthors.Location = new System.Drawing.Point(581, 63);
+            this.btnBrowseAuthors.Name = "btnBrowseAuthors";
+            this.btnBrowseAuthors.Size = new System.Drawing.Size(100, 100);
+            this.btnBrowseAuthors.TabIndex = 29;
+            this.btnBrowseAuthors.Tag = "BrowseAuthors";
+            this.btnBrowseAuthors.UseVisualStyleBackColor = false;
+            this.btnBrowseAuthors.Click += new System.EventHandler(this.ShowNewFormByBtn);
+            // 
+            // btnBrowseBooks
+            // 
+            this.btnBrowseBooks.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBrowseBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBrowseBooks.FlatAppearance.BorderSize = 0;
+            this.btnBrowseBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowseBooks.Image = global::Library.Properties.Resources.browsebook;
+            this.btnBrowseBooks.Location = new System.Drawing.Point(306, 63);
+            this.btnBrowseBooks.Name = "btnBrowseBooks";
+            this.btnBrowseBooks.Size = new System.Drawing.Size(100, 100);
+            this.btnBrowseBooks.TabIndex = 28;
+            this.btnBrowseBooks.Tag = "BrowseBooks";
+            this.btnBrowseBooks.UseVisualStyleBackColor = false;
+            this.btnBrowseBooks.Click += new System.EventHandler(this.ShowNewFormByBtn);
+            // 
+            // btnMaintenanceBookAuthorList
+            // 
+            this.btnMaintenanceBookAuthorList.BackColor = System.Drawing.Color.Orange;
+            this.btnMaintenanceBookAuthorList.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMaintenanceBookAuthorList.FlatAppearance.BorderSize = 0;
+            this.btnMaintenanceBookAuthorList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintenanceBookAuthorList.Image = global::Library.Properties.Resources.list;
+            this.btnMaintenanceBookAuthorList.Location = new System.Drawing.Point(704, 66);
+            this.btnMaintenanceBookAuthorList.Name = "btnMaintenanceBookAuthorList";
+            this.btnMaintenanceBookAuthorList.Size = new System.Drawing.Size(100, 100);
+            this.btnMaintenanceBookAuthorList.TabIndex = 27;
+            this.btnMaintenanceBookAuthorList.Tag = "AuthorList";
+            this.btnMaintenanceBookAuthorList.UseVisualStyleBackColor = false;
+            this.btnMaintenanceBookAuthorList.Click += new System.EventHandler(this.ShowNewFormByBtn);
+            // 
+            // btnMaintenanceAuthor
+            // 
+            this.btnMaintenanceAuthor.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnMaintenanceAuthor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMaintenanceAuthor.FlatAppearance.BorderSize = 0;
+            this.btnMaintenanceAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintenanceAuthor.Image = global::Library.Properties.Resources.author;
+            this.btnMaintenanceAuthor.Location = new System.Drawing.Point(421, 66);
+            this.btnMaintenanceAuthor.Name = "btnMaintenanceAuthor";
+            this.btnMaintenanceAuthor.Size = new System.Drawing.Size(100, 100);
+            this.btnMaintenanceAuthor.TabIndex = 26;
+            this.btnMaintenanceAuthor.Tag = "Author";
+            this.btnMaintenanceAuthor.UseVisualStyleBackColor = false;
+            this.btnMaintenanceAuthor.Click += new System.EventHandler(this.ShowNewFormByBtn);
+            // 
+            // btnMaintenanceBook
+            // 
+            this.btnMaintenanceBook.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnMaintenanceBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMaintenanceBook.FlatAppearance.BorderSize = 0;
+            this.btnMaintenanceBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaintenanceBook.Image = ((System.Drawing.Image)(resources.GetObject("btnMaintenanceBook.Image")));
+            this.btnMaintenanceBook.Location = new System.Drawing.Point(139, 66);
+            this.btnMaintenanceBook.Name = "btnMaintenanceBook";
+            this.btnMaintenanceBook.Size = new System.Drawing.Size(100, 100);
+            this.btnMaintenanceBook.TabIndex = 22;
+            this.btnMaintenanceBook.Tag = "Book";
+            this.btnMaintenanceBook.UseVisualStyleBackColor = false;
+            this.btnMaintenanceBook.Click += new System.EventHandler(this.ShowNewFormByBtn);
             // 
             // mdiForm
             // 

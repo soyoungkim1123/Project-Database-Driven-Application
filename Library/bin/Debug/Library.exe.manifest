@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Library.exe" size="198624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Library.exe" size="202720">
       <assemblyIdentity name="Library" version="1.0.0.0" publicKeyToken="EC84B36CE6733704" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GnkOUL+dwCLssjgSfOvAzx4DDQIKdc/562lwdxeMqrg=</dsig:DigestValue>
+        <dsig:DigestValue>oKcFDsfNwH5htpPU6P89NvmNN0QpjQJ72nSClzCvs/Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
