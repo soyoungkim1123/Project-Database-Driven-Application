@@ -97,6 +97,8 @@ namespace Library
                 createNewRecord = true;
 
                 NavigationState(false);
+                UT.ClearControls(grpBook.Controls);
+                UT.ClearControls(grpAuthor.Controls);
             }
 
             catch (Exception ex)
@@ -115,7 +117,7 @@ namespace Library
         {
             try
             {
-                LoadListDetails();
+                LoadList();
                 btnUpdate.Text = "Update";
                 btnAdd.Enabled = true;
                 btnDelete.Enabled = true;
@@ -196,6 +198,46 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// display book information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbBook_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbBook.SelectedIndex > 0)
+                {
+                    LoadBookInfo();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        /// <summary>
+        /// display author information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbAuthor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbAuthor.SelectedIndex > 0)
+                {
+                    LoadAuthorInfo();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+        }
         #endregion
 
         #region NonQuery Exection
@@ -254,8 +296,6 @@ namespace Library
             {
                 MessageBox.Show("The database reported no rows affected.");
             }
-
-
         }
 
         /// <summary>
@@ -279,6 +319,7 @@ namespace Library
                 MessageBox.Show("The database reported no rows affected.");
             }
         }
+
         #endregion
 
         #region Retrieves
@@ -332,7 +373,7 @@ namespace Library
                 firstBookId = currentBookId;
                 firstAuthorId = currentAuthorId;
 
-                LoadListDetails();
+                LoadList();
                 NavigationButtonManagement();
             }
             else
@@ -344,17 +385,20 @@ namespace Library
         }
 
         /// <summary>
-        /// display details and assign id for navigation
+        /// display list and assign id for navigation
         /// </summary>
-        private void LoadListDetails()
+        private void LoadList()
         {
             errProvider.Clear();
 
             string sqlNav;
-            string sqlListByIds = $@"SELECT ba.BookId, ba.AuthorId FROM BooksAuthors AS ba
-                                        INNER JOIN Book AS b
-                                        ON ba.BookId = b.BookId
-                                        WHERE ba.BookId = {currentBookId} AND ba.AuthorId = {currentAuthorId}";
+            string sqlListByIds = $@"SELECT 
+                                        ba.BookId, 
+                                        ba.AuthorId
+                                    FROM BooksAuthors AS ba
+                                    INNER JOIN Book AS b
+                                    ON ba.BookId = b.BookId
+                                    WHERE ba.BookId = {currentBookId} AND ba.AuthorId = {currentAuthorId}";
 
             if (cmbCategory.SelectedIndex > 0)
             {
@@ -428,7 +472,7 @@ namespace Library
             }
 
 
-            string[] sqlStatements = new string[] { sqlListByIds, sqlNav };
+            string[] sqlStatements = new string[] { DataAccess.SQLCleaner(sqlListByIds), DataAccess.SQLCleaner(sqlNav) };
             DataSet ds = DataAccess.GetData(sqlStatements);
 
             if (ds.Tables[0].Rows.Count > 0)
@@ -437,6 +481,7 @@ namespace Library
 
                 cmbBook.SelectedValue = selectedList["BookId"];
                 cmbAuthor.SelectedValue = selectedList["AuthorId"];
+
 
                 numOfList = Convert.ToInt32(ds.Tables["Table1"].Rows[0]["NumOfLists"]);
 
@@ -462,7 +507,46 @@ namespace Library
                 ((mdiForm)this.MdiParent).StatusStipLabel.Text = "No records";
                 MessageBox.Show("The list no longer exists");
             }
+        }
 
+        private void LoadBookInfo()
+        {
+            errProvider.Clear();
+
+            string sqlBookInfo = $@"SELECT TOP 1
+                                        b.Publisher, 
+                                        CONVERT(VARCHAR(10), b.PublicateDate, 101) AS PublicationDate,
+                                        (SELECT COUNT(*) FROM BooksAuthors WHERE BookId = {cmbBook.SelectedValue}) AS NumOfAuthor
+                                    FROM BooksAuthors AS ba
+                                    INNER JOIN Book AS b
+                                    ON ba.BookId = b.BookId
+                                    WHERE b.BookId = {cmbBook.SelectedValue}";
+
+            DataTable dtDetails = DataAccess.GetData(sqlBookInfo);
+
+            txtPublisher.Text = dtDetails.Rows[0]["Publisher"].ToString();
+            txtPublicationDate.Text = dtDetails.Rows[0]["PublicationDate"].ToString();
+            txtNumOfAuthor.Text = dtDetails.Rows[0]["NumOfAuthor"].ToString();
+        }
+
+        private void LoadAuthorInfo()
+        {
+            errProvider.Clear();
+
+            string sqlAuthorInfo = $@"SELECT 
+                                        a.ContactNumber, 
+                                        c.CategoryName,
+                                        a.NumOfBooks
+                                    FROM Author AS a
+                                    INNER JOIN Category AS c
+                                    ON a.MainCategory = c.CategoryId
+                                    WHERE a.AuthorId = {cmbAuthor.SelectedValue}";
+
+            DataTable dtDetails = DataAccess.GetData(sqlAuthorInfo);
+
+            txtPhoneNumber.Text = dtDetails.Rows[0]["ContactNumber"].ToString();
+            txtCategory.Text = dtDetails.Rows[0]["CategoryName"].ToString();
+            txtNumOfBook.Text = dtDetails.Rows[0]["NumOfBooks"].ToString();
         }
 
         #endregion
@@ -497,7 +581,7 @@ namespace Library
                     break;
             }
 
-            LoadListDetails();
+            LoadList();
             NavigationButtonManagement();
         }
 
@@ -553,6 +637,10 @@ namespace Library
             ((mdiForm)this.MdiParent).ProgressBar.Visible = false;
         }
 
+        /// <summary>
+        /// button&combobox enable status setup
+        /// </summary>
+        /// <param name="state"></param>
         private void Setup(bool state)
         {
             NavigationState(state);
@@ -625,8 +713,9 @@ namespace Library
             ((mdiForm)this.MdiParent).RefreshParent();
         }
 
+
         #endregion
 
-
+      
     }
 }

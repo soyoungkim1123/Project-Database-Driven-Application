@@ -57,5 +57,20 @@ namespace Library
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
+
+        private void txt_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TextBox txt = (TextBox)sender;
+            string txtBoxName = txt.Tag.ToString();
+            string errMsg = null;
+
+            if (txt.Text == string.Empty)
+            {
+                errMsg = $"{txtBoxName} is required";
+                e.Cancel = true;
+            }
+
+            errorProvider1.SetError(txt, errMsg);
+        }
     }
 }
